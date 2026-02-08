@@ -1,0 +1,199 @@
+:root{
+  /* Primary / Accent */
+  --main: #163a2d;       /* Dark green for nav/header */
+  --secondary: #3a7f5a;  /* Emerald hover */
+  
+  /* Backgrounds */
+  --bg: #F0FFF0;         /* Light theme bg */
+  --light:#e6fffa;      /* Light card / section */
+  --grey:#f9f9f9;       /* Alternate light section */
+  --dark-bg:#064e3b;    /* Dark mode bg */
+  --dark-card:#065f46;  /* Dark mode card / section */
+  
+  /* Text colors */
+  --text:#065f46;       /* Light theme text */
+  --text-dark:#d1fae5;  /* Dark mode text */
+
+  /* Shadow */
+  --shadow: rgba(0,0,0,0.12);
+}
+
+/* ========== BODY ========== */
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+  transition:0.4s;
+}
+
+body.dark{
+  background:var(--dark-bg);
+  color:var(--text-dark);
+}
+
+/* ========== NAVBAR ========== */
+nav{
+  position:sticky;
+  top:0;
+  background: #ffffff;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+  transition:0.4s;
+}
+
+body.dark nav{
+  background:var(--dark-card);
+}
+
+nav a{
+  margin:5px;
+  padding:6px 12px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--main);
+  border-radius:6px;
+  transition:0.3s;
+}
+
+body.dark nav a{
+  color: var(--text-dark);
+}
+
+nav a:hover{
+  background:var(--secondary);
+  color:white;
+}
+
+nav button{
+  margin-left:10px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ========== HEADER ========== */
+header{
+  background:linear-gradient(135deg,var(--main),var(--secondary));
+  color:white;
+  text-align:center;
+  padding:55px 20px;
+}
+
+/* ========== SECTIONS ========== */
+section{
+  max-width:1100px;
+  margin:30px auto;
+  padding:70px 20px;
+  border-radius:18px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease, background 0.4s, color 0.4s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Backgrounds */
+.bg-white{background:white;}
+.bg-light{background:var(--light);}
+.bg-grey{background:var(--grey);}
+
+/* Dark mode sections */
+body.dark section{
+  background: var(--dark-card);
+  color: var(--text-dark);
+}
+
+/* ========== CARDS ========== */
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:30px;
+}
+
+.card{
+  background:var(--card);
+  width:260px;
+  margin:12px;
+  padding:25px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 10px 25px var(--shadow);
+  transition:0.4s;
+}
+
+body.dark .card{
+  background:var(--dark-card);
+  color:var(--text-dark);
+}
+
+.card:hover{
+  transform:scale(1.08);
+  cursor:pointer;
+}
+
+/* ========== FORM ========== */
+form{
+  max-width:500px;
+  margin:auto;
+  background:var(--card);
+  padding:25px;
+  border-radius:15px;
+  transition:0.4s;
+}
+
+body.dark form{
+  background:var(--dark-card);
+  color:var(--text-dark);
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+button.submit{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,var(--secondary),var(--main));
+  border:none;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* ========== GALLERY ========== */
+.gallery{text-align:center;}
+.gallery img{
+  width:260px;
+  margin:12px;
+  border-radius:15px;
+  transition:0.4s;
+}
+.gallery img:hover{transform:scale(1.1);}
+
+/* ========== FOOTER ========== */
+footer{
+  background:var(--main);
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
+
+/* ========== MEDIA ========== */
+@media(max-width:600px){
+  .cards{flex-direction:column;align-items:center;}
+  .gallery img{width:85%;}
+}
